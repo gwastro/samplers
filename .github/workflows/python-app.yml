@@ -31,9 +31,7 @@ jobs:
         cd pycbc
         pip install -r requirements.txt
         pip install -r companion.txt
-        pip install . 
+        pip install .
     - name: Running inference test
       run: |
-        bash test.sh $TEST $SAMPLER
---verbose
-
+        bash test.sh
