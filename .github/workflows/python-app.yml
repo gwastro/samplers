@@ -13,7 +13,7 @@ jobs:
   build:
     strategy:
       matrix:
-        test: [150914-full, 150914-sky]
+        test: [150914-full, 150914-ext]
         sampler: [dynesty_1, dynest_2, ultranest_1]
     runs-on: ubuntu-latest
     steps:
