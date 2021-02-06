@@ -13,8 +13,8 @@ jobs:
   build:
     strategy:
       matrix:
-        test: [150914-full.ini, 150914-sky.ini]
-        sampler: [dynesty_1.ini, dynest_2.ini, ultranest_1.ini]
+        test: [150914-full, 150914-sky]
+        sampler: [dynesty_1, dynest_2, ultranest_1]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
