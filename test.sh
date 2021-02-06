@@ -1,5 +1,5 @@
 OMP_NUM_THREADS=1 pycbc_inference \
---config-file ${TEST}.ini ${SAMPLER}.ini \
+--config-file tests/${TEST}.ini sampler_configs/${SAMPLER}.ini \
 --nprocesses=1 \
 --output-file ${TEST}-${SAMPLER}.hdf \
 --seed 0 \
