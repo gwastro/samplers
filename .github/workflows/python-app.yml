@@ -23,9 +23,6 @@ jobs:
       with:
         python-version: 3.8
     - name: Install dependencies
-      env:
-        TEST: ${{matrix.test}}
-        SAMPLER: ${{matrix.sampler}}
       run: |
         git clone https://github.com/ahnitz/pycbc.git
         cd pycbc
@@ -35,5 +32,8 @@ jobs:
         pip install ultranest
         pip install .
     - name: Running inference test
+      env:
+        TEST: ${{matrix.test}}
+        SAMPLER: ${{matrix.sampler}}
       run: |
         bash test.sh
