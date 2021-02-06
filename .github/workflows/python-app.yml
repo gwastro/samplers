@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        test: [150914-full.ini, 150914-sky.ini]
+        sampler: [dynesty_1.ini, dynest_2.ini, ultranest_1.ini]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      env:
+        TEST: ${{matrix.test}}
+        SAMPLER: ${{matrix.sampler}}
+      run: |
+        git clone https://github.com/gwastro/pycbc.git
+        cd pycbc
+        pip install -r requirements.txt
+        pip install -r companion.txt
+        pip install . 
+    - name: Running inference test
+      run: |
+        bash test.sh $TEST $SAMPLER
+--verbose
+
