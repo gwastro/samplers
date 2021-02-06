@@ -28,8 +28,8 @@ jobs:
         SAMPLER: ${{matrix.sampler}}
       run: |
         git clone https://github.com/ahnitz/pycbc.git
-        git checkout post
         cd pycbc
+        git checkout post
         pip install -r requirements.txt
         pip install -r companion.txt
         pip install ultranest
