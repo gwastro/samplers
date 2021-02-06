@@ -1,3 +1,5 @@
+echo $TEST
+echo $SAMPLER
 OMP_NUM_THREADS=1 pycbc_inference \
 --config-file tests/${TEST}.ini sampler_configs/${SAMPLER}.ini \
 --nprocesses=1 \
