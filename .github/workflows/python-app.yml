@@ -27,10 +27,12 @@ jobs:
         TEST: ${{matrix.test}}
         SAMPLER: ${{matrix.sampler}}
       run: |
-        git clone https://github.com/gwastro/pycbc.git
+        git clone https://github.com/ahnitz/pycbc.git
+        git checkout post
         cd pycbc
         pip install -r requirements.txt
         pip install -r companion.txt
+        pip install ultranest
         pip install .
     - name: Running inference test
       run: |
